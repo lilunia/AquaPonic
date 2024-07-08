@@ -92,7 +92,14 @@ export const ModuleDetails = () => {
 						/>
 					)}
 				</div>
+				<div className={styles.singleInfo}>
+					<p>current temperature:</p>
+					<p></p>
+				</div>
 				{error && <p className={styles.error}>{error}</p>}
+				{details.available === false && (
+					<p className={styles.error}>You cannot edit unavailable module... </p>
+				)}
 			</div>
 			<div className={styles.buttons}>
 				<NavLink to='/'>
@@ -112,7 +119,10 @@ export const ModuleDetails = () => {
 					</button>
 				)}
 				{!isFormShown && (
-					<button onClick={() => setFormShown(prev => !prev)}>
+					<button
+						onClick={() => setFormShown(prev => !prev)}
+						disabled={details.available === false ? true : false}
+					>
 						EDIT PARAMETERS
 						<img className={styles.editImg} src={EDIT} alt='' />
 					</button>

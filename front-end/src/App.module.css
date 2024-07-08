@@ -1,10 +1,14 @@
+:root {
+	--color-main: #1c851c;
+}
+
 .modules {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	margin: 2rem;
-	width: 40rem;
+	/* max-width: 50rem; */
 	border-radius: 1em;
 	box-shadow: 0.125em 0.125em 0.25em #9f9f9f;
 }
@@ -13,7 +17,7 @@
 	display: flex;
 	justify-content: space-between;
 	cursor: pointer;
-	border-bottom: 0.0625em solid #1c851c;
+	border-bottom: 0.0625em solid var(--color-main);
 }
 .module:last-of-type {
 	border-bottom-left-radius: 1em;
@@ -29,12 +33,13 @@
 	justify-content: space-between;
 	width: 100%;
 	font-weight: bold;
-	color: #1c851c;
-	border-bottom: 0.125em solid #1c851c;
+	color: var(--color-main);
+	border-bottom: 0.125em solid var(--color-main);
 }
 .headers p {
 	padding: 1em;
 	width: 33.3%;
+	font-size: 0.75rem;
 	text-align: center;
 }
 ul {
@@ -48,6 +53,7 @@ li {
 
 li p {
 	width: 33.3%;
+	font-size: 0.75rem;
 	text-align: center;
 }
 li a {
@@ -55,4 +61,25 @@ li a {
 	width: 100%;
 	color: #000000;
 	text-decoration: none;
+}
+.withinScope {
+	color: var(--color-main);
+}
+.beyondScope {
+	color: red;
+}
+@media (min-width: 576px) {
+	.headers p,
+	li p {
+		font-size: 1rem;
+	}
+}
+@media (min-width: 768px) {
+	.modules {
+		width: 45rem;
+	}
+	.headers p,
+	li p {
+		font-size: 1.5rem;
+	}
 }
