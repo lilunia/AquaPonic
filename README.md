@@ -4,7 +4,7 @@ This application is used to manage IoT modules that take measurements of water p
 This app was created using **Vite + React.js + React Router**.
 
 <p align="center">
-<img src="./front-end/src/assets/mainApp.png" height= "200%" alt="Main app screenshot">
+<img src="./front-end/src/assets/mainApp.png" height= "400%" alt="Main app screenshot">
 </p>
 
 ## Table of contents
@@ -71,19 +71,19 @@ A chart was added to the module details page with the possibility of viewing his
 ### Main page
 
 <p align="center">
-  <img src="./front-end/src/assets/mainApp.png" style="width:320px;" alt="MainApp screenshot">
+  <img src="./front-end/src/assets/mainApp.png" height= "400%" alt="MainApp screenshot">
 </p>
 
 ### Module details
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleDetails.png" style="width:320px;" alt="Module details screenshot">
+  <img src="./front-end/src/assets/moduleDetails.png" height= "400%" alt="Module details screenshot">
 </p>
 
 ### Module edit
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleEdit.png" style="width:320px;" alt="Module edit screenshot">
+  <img src="./front-end/src/assets/moduleEdit.png" height= "400%" alt="Module edit screenshot">
 </p>
 
 ## Installation
