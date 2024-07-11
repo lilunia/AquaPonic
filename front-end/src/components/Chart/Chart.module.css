@@ -1,0 +1,19 @@
+.chart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20rem;
+}
+
+@media (min-width: 576px) {
+	.chart {
+		width: 33rem;
+		height: 20rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.chart {
+		width: 40rem;
+	}
+}

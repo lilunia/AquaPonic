@@ -1,22 +1,10 @@
-import { io } from 'socket.io-client'
 import styles from './App.module.css'
 import { NavLink, useLoaderData } from 'react-router-dom'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useGetDataFromSocket } from './hooks/useGetDataFromSocket'
 
 const App = () => {
 	const modules = useLoaderData()
-	const [messageFromSocket, setMessageFromSocket] = useState([])
-
-	const socket = io('localhost:3001', {
-		transports: ['websocket'],
-	})
-	socket.connect()
-	useEffect(() => {
-		socket.on('moduleUpdate', message => {
-			setMessageFromSocket(message)
-		})
-	}, [socket, modules])
+	const { messageFromSocket } = useGetDataFromSocket()
 
 	return (
 		<div className={styles.modules}>
@@ -64,5 +52,4 @@ const App = () => {
 		</div>
 	)
 }
-
 export default App

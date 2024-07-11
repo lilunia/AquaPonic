@@ -3,10 +3,10 @@
 	justify-content: center;
 	align-items: start;
 	flex-direction: column;
-	padding: 1em;
+	padding: 1rem;
 	max-width: 40rem;
-	border-radius: 1em;
-	box-shadow: 0.125em 0.125em 0.25em #9f9f9f;
+	border-radius: 1rem;
+	box-shadow: 0.125rem 0.125rem 0.25rem var(--color-shadow);
 }
 .detailsInfo {
 	display: flex;
@@ -16,14 +16,14 @@
 	width: 100%;
 }
 .header {
-	padding: 1em 0;
-	color: #1c851c;
+	padding: 1rem 0;
+	color: var(--color-main);
 	font-weight: bold;
-	border-bottom: 0.0625em solid #1c851c;
+	border-bottom: 0.0625rem solid var(--color-main);
 }
 
 .name {
-	margin-left: 1em;
+	margin-left: 1rem;
 	width: 50%;
 	font-weight: bold;
 	overflow-wrap: break-word;
@@ -50,50 +50,84 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0.5em 1em;
-	margin: 3em 1em 2em;
-	background-color: #b6e7b6;
+	padding: 0.5rem 1rem;
+	margin: 3rem 1rem 2rem;
+	background-color: var(--color-background);
 	border: none;
-	border: 1em;
-	border-radius: 1em;
+	border: 1rem;
+	border-radius: 1rem;
 	cursor: pointer;
 }
 
 button:hover {
-	background-color: #8fc78f;
+	background-color: var(--color-hover);
 }
 .arrowImg {
-	font-size: 0.5em;
-	margin-right: 0.5em;
+	font-size: 0.5rem;
+	margin-right: 0.5rem;
 }
 .editImg {
-	margin-left: 0.5em;
+	margin-left: 0.5rem;
 }
 input {
-	margin-left: 2em;
+	margin-left: 2rem;
 }
 textarea {
 	resize: vertical;
 }
 input,
 textarea {
-	padding: 1em;
+	padding: 1rem;
 	font-family: 'Segoe UI', Verdana, sans-serif;
+}
+.select {
+	width: 100%;
+	text-align: center;
+	padding: 2rem 0;
+	font-size: 1rem;
+}
+.select select {
+	border: none;
+	border-bottom: 0.1rem solid var(--color-main);
+	background: none;
+	font-family: inherit;
+	font-size: 1rem;
+}
+.dateSettings {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 1rem 0;
+	width: 100%;
+}
+.dateSettings select{
+	margin-left: 1rem;
 }
 .error {
 	text-align: right;
-	color: red;
+	color: var(--color-error);
+}
+
+.withinScope {
+	color: var(--color-main);
+}
+.beyondScope {
+	color: var(--color-error);
 }
 
 @media (min-width: 576px) {
 	.details {
-		padding: 2em;
+		padding: 2rem;
 	}
 	button {
-		padding: 1em 2em;
+		padding: 1rem 2rem;
 	}
 	.singleInfo {
 		width: 33rem;
+	}
+	.dateSettings {
+		flex-direction: row;
 	}
 }
 

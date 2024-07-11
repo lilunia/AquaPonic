@@ -1,31 +1,26 @@
-:root {
-	--color-main: #1c851c;
-}
-
 .modules {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	margin: 2rem;
-	/* max-width: 50rem; */
-	border-radius: 1em;
-	box-shadow: 0.125em 0.125em 0.25em #9f9f9f;
+	border-radius: 1rem;
+	box-shadow: 0.125rem 0.125rem 0.25rem var(--color-shadow);
 }
 
 .module {
 	display: flex;
 	justify-content: space-between;
 	cursor: pointer;
-	border-bottom: 0.0625em solid var(--color-main);
+	border-bottom: 0.0625rem solid var(--color-main);
 }
 .module:last-of-type {
-	border-bottom-left-radius: 1em;
-	border-bottom-right-radius: 1em;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
 	border-bottom: none;
 }
 .module:hover {
-	background-color: #b6e7b6;
+	background-color: var(--color-hover);
 }
 
 .headers {
@@ -34,24 +29,22 @@
 	width: 100%;
 	font-weight: bold;
 	color: var(--color-main);
-	border-bottom: 0.125em solid var(--color-main);
+	border-bottom: 0.125rem solid var(--color-main);
 }
 .headers p {
-	padding: 1em;
+	padding: 0.5rem;
 	width: 33.3%;
 	font-size: 0.75rem;
 	text-align: center;
 }
 ul {
-	padding: 0 4em;
+	padding: 0 4rem;
 	margin: 0;
 	width: 100%;
 }
-li {
-	padding: 1em;
-}
 
 li p {
+	padding: 0.5rem;
 	width: 33.3%;
 	font-size: 0.75rem;
 	text-align: center;
@@ -59,14 +52,14 @@ li p {
 li a {
 	display: flex;
 	width: 100%;
-	color: #000000;
+	color: var(--color-text);
 	text-decoration: none;
 }
 .withinScope {
 	color: var(--color-main);
 }
 .beyondScope {
-	color: red;
+	color: var(--color-error);
 }
 @media (min-width: 576px) {
 	.headers p,
