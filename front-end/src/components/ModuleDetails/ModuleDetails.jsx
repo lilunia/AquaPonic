@@ -80,6 +80,7 @@ export const ModuleDetails = () => {
 							className={styles.name}
 							type='number'
 							step={0.5}
+							lang='pl,en'
 							defaultValue={newTemperature}
 							onChange={e =>
 								setNewTemperature(

@@ -5,10 +5,10 @@ export const checkForm = (newName, newDescription, newTemperature, setError, set
 
 	if (newName.trim() !== '' && newDescription.trim() !== '' && newTemperature !== '') {
 		if (!reTemp.test(newTemperature)) {
-			setError('Temparature must be a number between 0 and 40 with one decimal place')
+			setError('Temparature must be number greater than 0 and less than 40 with one decimal place')
 		} else {
-			if (Number(newTemperature) < 0 || Number(newTemperature) > 40) {
-				setError('Temparature must be a number between 0 and 40')
+			if (Number(newTemperature) <= 0 || Number(newTemperature) > 40) {
+				setError('Temparature must be number greater than 0 and less than 40 with one decimal place')
 			} else {
 				setError('')
 				editParameters(details, newName, newDescription, newTemperature)

@@ -4,7 +4,7 @@ This application is used to manage IoT modules that take measurements of water p
 This app was created using **Vite + React.js + React Router**.
 
 <p align="center">
-<img src="./front-end/src/assets/mainApp.png" height= "400%" alt="Main app screenshot">
+<img src="./front-end/src/assets/mainApp.png" height= "100%" alt="Main app screenshot">
 </p>
 
 ## Table of contents
@@ -23,7 +23,7 @@ The list of modules is retrieved by endpoint **GET /modules**
 
 ### 2. Module details page
 
-After clicking on the appropriate item in the list of all modules, the user is transferred to the details page of the selected module
+After clicking on the appropriate item in the list of all modules, the user is transferred to the details page of the selected module.
 
 The module data are retrieved by endpoint **GET /modules/:id**
 
@@ -33,7 +33,7 @@ On the module details page the user has the possibility to change the module par
 
 - After clicking the button 'EDIT PARAMETERS' the fields with the possibility to edit the parameters name, description, targetTemperature will appear.
 - It is not possible to edit an unavailable module.
-- The data entered are subject to validation before being sent to the API.Field validation is performed according to the rules:
+- The data entered are subject to validation before being sent to the API. Field validation is performed according to the rules:
      - name - character string, not empty
      - description - a string of characters, not empty
      - targetTemperature - number, between 0 and 40
@@ -71,19 +71,19 @@ A chart was added to the module details page with the possibility of viewing his
 ### Main page
 
 <p align="center">
-  <img src="./front-end/src/assets/mainApp.png" height= "400%" alt="MainApp screenshot">
+  <img src="./front-end/src/assets/mainApp.png" height= "100%" alt="MainApp screenshot">
 </p>
 
 ### Module details
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleDetails.png" height= "400%" alt="Module details screenshot">
+  <img src="./front-end/src/assets/moduleDetails.png" height= "100%" alt="Module details screenshot">
 </p>
 
 ### Module edit
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleEdit.png" height= "400%" alt="Module edit screenshot">
+  <img src="./front-end/src/assets/moduleEdit.png" height= "100%" alt="Module edit screenshot">
 </p>
 
 ## Installation
