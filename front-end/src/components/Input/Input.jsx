@@ -1,18 +1,15 @@
 import styles from '../Input/Input.module.css'
 
-export const Input = ({ text, isFormShown, newName, setNewName, details }) => {
+export const Input = ({ type, defaultValue, onChange }) => {
 	return (
-		<div className={styles.singleInfo}>
-			<p>{text}:</p>
-			{!isFormShown && <p className={styles.name}>{details}</p>}
-			{isFormShown && (
-				<input
-					className={styles.name}
-					type='name'
-					defaultValue={newName}
-					onChange={e => setNewName((details = e.target.value))}
-				/>
-			)}
-		</div>
+		<input
+			className={styles.name}
+			type={type}
+			defaultValue={defaultValue}
+			onChange={onChange}
+			step={0.5}
+			lang='pl,en'
+			data-testid='input-test'
+		/>
 	)
 }

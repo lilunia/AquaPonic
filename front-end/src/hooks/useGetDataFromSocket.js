@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
 import { io } from 'socket.io-client'
 
 export const useGetDataFromSocket = () => {
@@ -15,16 +13,13 @@ export const useGetDataFromSocket = () => {
 		const onConnect = message => {
 			setMessageFromSocket(message)
 		}
-		const interval = setInterval(() => {
-			socket.connect()
-			socket.on('moduleUpdate', onConnect)
-		}, 1000)
+		socket.connect()
+		socket.on('moduleUpdate', onConnect)
 
 		return () => {
 			socket.off('moduleUpdate', onConnect)
-			clearInterval(interval)
 		}
-	}, [socket])
+	}, [])
 
 	return { messageFromSocket }
 }

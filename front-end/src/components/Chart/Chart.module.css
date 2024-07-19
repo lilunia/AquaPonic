@@ -1,14 +1,20 @@
 .chart {
+	width: 18rem;
+	padding: 1rem;
+}
+canvas {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 20rem;
 }
 
+@media (min-width: 414px) {
+	.chart {
+		width: 25rem;
+		height: 20rem;
+	}
+}
 @media (min-width: 576px) {
 	.chart {
 		width: 33rem;
-		height: 20rem;
 	}
 }
 

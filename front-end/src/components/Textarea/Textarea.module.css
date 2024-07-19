@@ -1,0 +1,6 @@
+.name {
+	margin: 1rem;
+	width: 50%;
+	font-weight: bold;
+	overflow-wrap: break-word;
+}

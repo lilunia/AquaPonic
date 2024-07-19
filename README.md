@@ -1,10 +1,10 @@
-# AquaPonic - Iot Module API
+# AquaPonic - Iot Module App
 
 This application is used to manage IoT modules that take measurements of water parameters in aquaponic culture.
 This app was created using **Vite + React.js + React Router**.
 
 <p align="center">
-<img src="./front-end/src/assets/mainApp.png" height= "100%" alt="Main app screenshot">
+<img src="./front-end/src/assets/mainApp.png" height= "500" alt="Main app screenshot">
 </p>
 
 ## Table of contents
@@ -19,13 +19,13 @@ This app was created using **Vite + React.js + React Router**.
 
 The main page of the application displays all available modules in the form of a list with their parameters.
 
-The list of modules is retrieved by endpoint **GET /modules**
+The list of modules is retrieved by endpoint ``` GET /modules ```
 
 ### 2. Module details page
 
 After clicking on the appropriate item in the list of all modules, the user is transferred to the details page of the selected module.
 
-The module data are retrieved by endpoint **GET /modules/:id**
+The module data are retrieved by endpoint ``` GET /modules/:id ```
 
 ### 3. Ability to edit the module
 
@@ -34,11 +34,11 @@ On the module details page the user has the possibility to change the module par
 - After clicking the button 'EDIT PARAMETERS' the fields with the possibility to edit the parameters name, description, targetTemperature will appear.
 - It is not possible to edit an unavailable module.
 - The data entered are subject to validation before being sent to the API. Field validation is performed according to the rules:
-     - name - character string, not empty
-     - description - a string of characters, not empty
-     - targetTemperature - number, between 0 and 40
+     - ```name``` - character string, not empty
+     - ```description``` - a string of characters, not empty
+     - ```targetTemperature``` - number, between 0 and 40
 
-The endpoint **PATCH /modules/:id** is used to edit the module
+The endpoint ``` PATCH /modules/:id ``` is used to edit the module
 
 ### 4. Display of current temperature value
 
@@ -55,7 +55,7 @@ A chart was added to the module details page with the possibility of viewing his
 
 - The Chart.js library was used to display the chart
 - The user can select the time range (1 day, 2 days, 7 days, 10 days, 30 days) and mode ("hourly" or "daily")
-- Historical data is retrieved by endpoint **GET /modules/:id/history** with the query parameters start, stop and mode.
+- Historical data is retrieved by endpoint ``` GET /modules/:id/history ``` with the query parameters start, stop and mode.
 - The start and stop parameters are in ISO 8601 format (YYYY-MM-DDTHH:mm:ss.sssZ) and the allowed mode values are 'hourly' or 'daily'.
 
 ## Technologies
@@ -71,19 +71,19 @@ A chart was added to the module details page with the possibility of viewing his
 ### Main page
 
 <p align="center">
-  <img src="./front-end/src/assets/mainApp.png" height= "100%" alt="MainApp screenshot">
+  <img src="./front-end/src/assets/mainApp.png" height= "380" alt="MainApp screenshot">
 </p>
 
 ### Module details
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleDetails.png" height= "100%" alt="Module details screenshot">
+  <img src="./front-end/src/assets/moduleDetails.png" height= "700" alt="Module details screenshot">
 </p>
 
 ### Module edit
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleEdit.png" height= "100%" alt="Module edit screenshot">
+  <img src="./front-end/src/assets/moduleEdit.png" height= "700" alt="Module edit screenshot">
 </p>
 
 ## Installation

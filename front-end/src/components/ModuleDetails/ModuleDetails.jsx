@@ -1,19 +1,19 @@
-import { NavLink, useLoaderData, useParams } from 'react-router-dom'
+import { useLoaderData, useParams } from 'react-router-dom'
 import styles from '../ModuleDetails/ModuleDetails.module.css'
-import ARROW_LEFT from '../../assets/arrow-left.svg'
-import EDIT from '../../assets/edit.svg'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useGetDataFromSocket } from '../../hooks/useGetDataFromSocket'
-import { Chart } from '../Chart/Chart'
 import { getModuleHistory } from '../../api/getModuleHistory'
-import { checkForm } from '../../utils/checkForm'
+import { Chart } from '../Chart/Chart'
 import { Select } from '../Select/Select'
+
+import { SingleInfo } from '../SingleInfo/SingleInfo'
+import { checkForm } from '../../utils/checkForm'
+import { Buttons } from '../Buttons/Buttons'
 
 export const ModuleDetails = () => {
 	const moduleData = useLoaderData()
 	const details = moduleData[0]
 	const [history, setHistory] = useState(moduleData[1])
-
 	const { id } = useParams()
 	const [isFormShown, setFormShown] = useState(false)
 	const [newName, setNewName] = useState(details.name)
@@ -25,7 +25,6 @@ export const ModuleDetails = () => {
 
 	const { messageFromSocket } = useGetDataFromSocket()
 	let currentTemp
-	useEffect(() => {}, [history, selectedOption])
 
 	{
 		messageFromSocket.map(msg => {
@@ -34,64 +33,43 @@ export const ModuleDetails = () => {
 			}
 		})
 	}
-
 	return (
 		<div className={styles.details}>
 			<div className={styles.detailsInfo}>
 				<p className={styles.header}>Module details</p>
-
-				<div className={styles.singleInfo}>
-					<p>name:</p>
-					{!isFormShown && <p className={styles.name}>{details.name}</p>}
-					{isFormShown && (
-						<input
-							className={styles.name}
-							type='name'
-							defaultValue={newName}
-							onChange={e => setNewName((details.name = e.target.value))}
-						/>
-					)}
-				</div>
-				<div className={styles.singleInfo}>
-					<p>description:</p>
-					{!isFormShown && <p className={styles.name}>{details.description}</p>}
-					{isFormShown && (
-						<textarea
-							className={styles.name}
-							type='name'
-							defaultValue={newDescription}
-							onChange={e =>
-								setNewDescription(
-									(details.description = e.target.value)
-								)
-							}
-						/>
-					)}
-				</div>
+				<SingleInfo
+					text='name'
+					type='text'
+					isFormShown={isFormShown}
+					textarea={false}
+					defaultValue={newName}
+					details={details.name}
+					onChange={e => setNewName((details.name = e.target.value))}
+				/>
+				<SingleInfo
+					text='description'
+					type='textarea'
+					isFormShown={isFormShown}
+					textarea={true}
+					defaultValue={newDescription}
+					details={details.description}
+					onChange={e => setNewDescription((details.description = e.target.value))}
+				/>
 				<div className={styles.singleInfo}>
 					<p>available:</p>
 					<p className={styles.name}>{`${details.available}`}</p>
 				</div>
-				<div className={styles.singleInfo}>
-					<p>target temperature:</p>
-					{!isFormShown && <p className={styles.name}>{details.targetTemperature}°C</p>}
-					{isFormShown && (
-						<input
-							className={styles.name}
-							type='number'
-							step={0.5}
-							lang='pl,en'
-							defaultValue={newTemperature}
-							onChange={e =>
-								setNewTemperature(
-									(details.targetTemperature = Number(
-										e.target.value
-									))
-								)
-							}
-						/>
-					)}
-				</div>
+				<SingleInfo
+					text='target temperature'
+					type='number'
+					isFormShown={isFormShown}
+					textarea={false}
+					defaultValue={newTemperature}
+					details={`${details.targetTemperature}°C`}
+					onChange={e =>
+						setNewTemperature((details.targetTemperature = Number(e.target.value)))
+					}
+				/>
 
 				{details.available === true && (
 					<div className={styles.singleInfo}>
@@ -114,68 +92,44 @@ export const ModuleDetails = () => {
 					<p className={styles.error}>You cannot edit unavailable module... </p>
 				)}
 			</div>
-			<div className={styles.buttons}>
-				<NavLink to='/'>
-					<button>
-						<img className={styles.arrowImg} src={ARROW_LEFT} alt='' />
-						GO BACK
-					</button>
-				</NavLink>
-				{isFormShown && (
-					<button
-						method='PATCH'
-						onClick={() => {
-							checkForm(
-								newName,
-								newDescription,
-								newTemperature,
-								setError,
-								setFormShown,
-								details
-							)
-						}}
-					>
-						SAVE
-					</button>
-				)}
-				{!isFormShown && (
-					<button
-						onClick={() => setFormShown(prev => !prev)}
-						disabled={details.available === false ? true : false}
-					>
-						EDIT PARAMETERS
-						<img className={styles.editImg} src={EDIT} alt='' />
-					</button>
-				)}
+			<Buttons
+				isFormShown={isFormShown}
+				onClickSave={() => {
+					checkForm(
+						newName,
+						newDescription,
+						newTemperature,
+						setError,
+						setFormShown,
+						details
+					)
+				}}
+				onClickEdit={() => setFormShown(prev => !prev)}
+				disabled={details.available === false ? true : false}
+			/>
+			<div className={styles.dateSettings}>
+				<Select
+					onChange={e => {
+						setSelectedOption(e.target.value)
+						getModuleHistory(id, e.target.value, selectedTime).then(res => {
+							setHistory(res)
+						})
+					}}
+					text='Set a time mode:'
+					options={['hourly', 'daily']}
+				/>
+				<Select
+					onChange={e => {
+						setSelectedTime(e.target.value)
+						getModuleHistory(id, selectedOption, e.target.value).then(res => {
+							setHistory(res)
+						})
+					}}
+					text='Set number of days:'
+					options={['1', '2', '7', '10', '30']}
+				/>
 			</div>
-			{details.available === true && (
-				<div className={styles.dateSettings}>
-					<Select
-						onChange={e => {
-							setSelectedOption(e.target.value)
-							getModuleHistory(id, e.target.value, selectedTime).then(res => {
-								setHistory(res)
-							})
-						}}
-						text='Set a time mode:'
-						options={['hourly', 'daily']}
-					/>
-					<Select
-						onChange={e => {
-							setSelectedTime(e.target.value)
-							getModuleHistory(id, selectedOption, e.target.value).then(
-								res => {
-									setHistory(res)
-								}
-							)
-						}}
-						text='Set number of days:'
-						options={['1', '2', '7', '10', '30']}
-					/>
-				</div>
-			)}
-
-			{details.available === true && <Chart history={history} />}
+			<Chart history={history} />
 		</div>
 	)
 }

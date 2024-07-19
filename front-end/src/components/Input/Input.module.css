@@ -1,27 +1,11 @@
-.singleInfo {
-	display: flex;
-	justify-content: start;
-	width: 17rem;
-}
-.singleInfo p {
-	text-align: left;
-	width: 50%;
+input {
+	margin-left: 2rem;
+	padding: 1rem;
+	font-family: 'Segoe UI', Verdana, sans-serif;
 }
 .name {
-	margin-left: 1em;
+	margin: 1rem;
 	width: 50%;
 	font-weight: bold;
 	overflow-wrap: break-word;
-}
-
-@media (min-width: 576px) {
-	.singleInfo {
-		width: 33rem;
-	}
-}
-
-@media (min-width: 768px) {
-	.singleInfo {
-		width: 40rem;
-	}
 }
