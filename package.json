@@ -1,13 +1,13 @@
 {
 	"name": "aquaponic",
 	"workspaces": [
-		"front-end",
+		"frontend",
 		"backend"
 	],
 	"scripts": {
-		"front-end": "npm run dev --workspace=front-end",
+		"frontend": "npm run dev --workspace=frontend",
 		"backend": "npm run start --workspace=backend",
-		"dev": "npm-run-all --parallel front-end backend "
+		"dev": "npm-run-all --parallel frontend backend "
 	},
 	"author": "Liliana",
 	"license": "ISC",

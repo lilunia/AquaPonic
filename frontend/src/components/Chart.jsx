@@ -8,9 +8,8 @@ import {
 	Legend,
 	Tooltip,
 } from 'chart.js'
-import { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2'
-import styles from '../Chart/Chart.module.css'
+import { useEffect, useState } from 'react'
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Legend, Tooltip)
 
@@ -61,7 +60,7 @@ export const Chart = ({ history }) => {
 	}, [history])
 
 	return (
-		<div className={styles.chart}>
+		<div className='flex p-4 h-48 w-full sm:h-80 '>
 			<Line options={chartOptions} data={chartData} />
 		</div>
 	)

@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import './styles/theme.css'
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { ModuleDetails } from './components/ModuleDetails/ModuleDetails.jsx'
+import { ModuleDetails } from './components/ModuleDetails.jsx'
 import { getModules } from './api/getModules.js'
 import { getModuleDetails } from './api/getModuleDetails.js'
 
