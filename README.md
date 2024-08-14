@@ -4,7 +4,7 @@ This application is used to manage IoT modules that take measurements of water p
 This app was created using **Vite + React.js + React Router**.
 
 <p align="center">
-<img src="./front-end/src/assets/mainApp.png" height= "500" alt="Main app screenshot">
+<img src="./frontend/src/assets/mainApp.png" height= "500" alt="Main app screenshot">
 </p>
 
 ## Table of contents
@@ -61,29 +61,29 @@ A chart was added to the module details page with the possibility of viewing his
 ## Technologies
 
 <p align="left">
-<a href="https://react.dev/"><img src="./front-end/src/assets/React-icon.png" style="width:32px; height:32px;" alt="React icon"></a>
-<a href="https://vitejs.dev/"><img src="./front-end/src/assets/vite.svg" style="width:32px; height:32px;" alt="React icon"></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="./front-end/src/assets/js_icon.svg" style="width:32px; height:32px;" alt="JS icon"></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=pl"><img src="./front-end/src/assets/css3_icon.svg" style="width:32px; height:32px;" alt="Css icon"></a>
+<a href="https://react.dev/"><img src="./frontend/src/assets/React-icon.png" style="width:32px; height:32px;" alt="React icon"></a>
+<a href="https://vitejs.dev/"><img src="./frontend/src/assets/vite.svg" style="width:32px; height:32px;" alt="React icon"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="./frontend/src/assets/js_icon.svg" style="width:32px; height:32px;" alt="JS icon"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=pl"><img src="./frontend/src/assets/css3_icon.svg" style="width:32px; height:32px;" alt="Css icon"></a>
 
 ## Screenshots
 
 ### Main page
 
 <p align="center">
-  <img src="./front-end/src/assets/mainApp.png" height= "380" alt="MainApp screenshot">
+  <img src="./frontend/src/assets/mainApp.png" height= "380" alt="MainApp screenshot">
 </p>
 
 ### Module details
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleDetails.png" height= "700" alt="Module details screenshot">
+  <img src="./frontend/src/assets/moduleDetails.png" height= "700" alt="Module details screenshot">
 </p>
 
 ### Module edit
 
 <p align="center">
-  <img src="./front-end/src/assets/moduleEdit.png" height= "700" alt="Module edit screenshot">
+  <img src="./frontend/src/assets/moduleEdit.png" height= "700" alt="Module edit screenshot">
 </p>
 
 ## Installation

@@ -7,12 +7,9 @@ export const editParameters = (details,newDetails) => {
 		},
 	}).then(res => {
 		if (res.ok) {
-			console.log(newDetails)
-			console.log(details);
 			details.name = newDetails.name
 			details.description = newDetails.description
 			details.targetTemperature = newDetails.targetTemperature
-			console.log(details);
 		}
 	})
 }

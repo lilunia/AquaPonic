@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { Button } from '../../src/components/Button/Button'
+import { Button } from '../../src/components/Button'
 
 test('Properly renders passed text', () => {
 	render(<Button>Click me!</Button>)

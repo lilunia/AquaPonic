@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { Button } from './Button'
+import { InputField } from './InputField'
+import { TextareaField } from './TextareaField'
 
 export const Form = ({ onFormSend }) => {
 	const {
@@ -14,42 +16,37 @@ export const Form = ({ onFormSend }) => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} noValidate className='flex flex-col items-end'>
-			<p className='w-1/2 mb-2 font-bold text-green-700'>Enter new values for module:</p>
-			<input
-				className='flex mb-2 w-1/2 border '
+			<p className='mb-2 px-4 w-full font-bold text-green-700'>Enter new values for module:</p>
+
+			<InputField
 				id='name'
 				placeholder='Enter a new name'
-				{...register('name', {
-					required: 'Enter a new name',
-				})}
+				register={register}
+				validation={{ required: 'Enter a new name' }}
+				errors={errors}
 			/>
-			{errors.name && <span className='mb-2 w-1/2 text-red-700 '>{errors.name.message}</span>}
-			<textarea
-				className='mb-2 w-1/2  min-h-20 max-h-60 border'
+
+			<TextareaField
 				id='description'
 				placeholder='Enter a new description'
-				{...register('description', {
-					required: 'Enter a new description',
-				})}
+				register={register}
+				validation={{ required: 'Enter a new description' }}
+				errors={errors}
 			/>
-			{errors.description && (
-				<span className='mb-2 w-1/2 text-red-700 '>{errors.description.message}</span>
-			)}
-			<input
-				className='mb-2 w-1/2 border'
+
+			<InputField
 				id='targetTemperature'
-				type='number'
 				placeholder='Enter a new temperature'
-				{...register('targetTemperature', {
+				register={register}
+				validation={{
 					valueAsNumber: true,
 					required: { value: true, message: 'Enter a new temperature' },
-					min: { value: 0.1, message: 'Temparature must be a number above 0' },
-					max: { value: 39.9, message: 'Temparature must be a number below 40' },
-				})}
+					min: { value: 0.1, message: 'Temperature must be above 0' },
+					max: { value: 40, message: 'Temperature must be 40 or less' },
+				}}
+				errors={errors}
 			/>
-			{errors.targetTemperature && (
-				<span className='w-1/2 text-red-700 mb-2'>{errors.targetTemperature.message}</span>
-			)}
+
 			<Button>SAVE</Button>
 		</form>
 	)
